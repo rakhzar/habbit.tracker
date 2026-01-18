@@ -69,6 +69,7 @@ body {
     height: 45px;
     width: 45px;
     cursor: pointer;
+    margin: 0 auto;
 }
 
 .menu__add:hover {
@@ -154,7 +155,7 @@ main {
     min-width: 150px;
 }
 
-.habbit__commet {
+.habbit__comment {
     font-style: 16px;
     line-height: 18px;
     padding: 20px 25px;
