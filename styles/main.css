@@ -191,6 +191,10 @@ input::placeholder {
     color: #8899AB;
 }
 
+input.error {
+    border: 1px solid red;
+}
+
 .habbit__form {
     display: flex;
     gap: 15px;
@@ -222,5 +226,5 @@ input::placeholder {
 }
 
 .button:hover {
-    background: #EDECFE;
+    background: #dcdaff;
 }
