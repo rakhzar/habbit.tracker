@@ -242,7 +242,7 @@ input.error {
 }
 
 .cover-hidden {
-    /* display: none; */
+    display: none;
 }
 
 .popup {
