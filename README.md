@@ -29,4 +29,4 @@
 
 2. Перейдите в папку проекта:
    ```bash
-   cd habbit-tracker
+   cd habbit.tracker
