@@ -45,14 +45,12 @@
 
 ## 🚀 Демо
 
-Посмотреть проект в действии можно по ссылке:  
-👉 [Habit Tracker Live](https://rakhzar.github.io/habbit.tracker/)
+👉[**Habit Tracker Live**](https://rakhzar.github.io/habbit.tracker/)
 
 ---
 
 ## 🚀 Быстрый старт
 
 ```bash
-git clone https://github.com/rakhzar/habbit.tracker.git
+git clone [https://github.com/rakhzar/habbit.tracker.git](https://github.com/rakhzar/habbit.tracker.git)
 cd habbit.tracker
-# Просто открой index.html в браузере
