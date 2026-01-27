@@ -48,7 +48,10 @@
 Посмотреть проект в действии можно по ссылке:  
 👉 [Habit Tracker Live](https://rakhzar.github.io/habbit.tracker/)
 
+---
+
 ## 🚀 Быстрый старт
+
 ```bash
 git clone https://github.com/rakhzar/habbit.tracker.git
 cd habbit.tracker
