@@ -43,6 +43,7 @@
 ├── index.html          # Точка входа в приложение
 └── README.md           # Документация проекта
 
+```
 ## 🚀 Демо
 
 👉[**Habit Tracker Live**](https://rakhzar.github.io/habbit.tracker/)
@@ -51,6 +52,12 @@
 
 ## 🚀 Быстрый старт
 
+1. Клонируйте репозиторий:
 ```bash
-git clone [https://github.com/rakhzar/habbit.tracker.git](https://github.com/rakhzar/habbit.tracker.git)
+git clone https://github.com/rakhzar/habbit.tracker.git
+```
+
+2. Перейдите в папку:
+```bash
 cd habbit.tracker
+```
