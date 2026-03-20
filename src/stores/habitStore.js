@@ -9,4 +9,12 @@ export const useHabitStore = defineStore("habitStore", () => {
   const activeHabit = computed(() => {
     habits.value.find((h) => h.id === activeHabit.value);
   });
+
+  const progressPercent = computed(() => {
+    if (!activeHabit.value) return 0;
+    const done = activeHabit.value.days.length;
+    const target = activeHabit.value.days.length;
+    const percent = (done / target) * 100;
+    return percent > 100 ? 100 : percent;
+  });
 });
