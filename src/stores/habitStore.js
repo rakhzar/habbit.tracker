@@ -31,4 +31,11 @@ export const useHabitStore = defineStore("habitStore", () => {
     });
     activeHabit.value = newId;
   };
+
+  const addday = (comment) => {
+    const habit = activeHabit.value;
+    if (habbit) {
+      habit.days.push({ comment });
+    }
+  };
 });
