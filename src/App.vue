@@ -1,11 +1,13 @@
 <template>
   <div class="app">
     <Sidebar />
+    <AddHabitModal />
   </div>
 </template>
 
 <script setup>
 import Sidebar from './components/Sidebar.vue';
+import AddHabitModal from './components/modals/AddHabitModal.vue';
 </script>
 
 <style>
