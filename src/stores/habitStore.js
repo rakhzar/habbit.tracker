@@ -53,7 +53,7 @@ export const useHabitStore = defineStore(
 
     const deleteHabit = (id) => {
       habits.value = habits.value.filter((h) => h.id !== id);
-      if (activeHabit.value === id) {
+      if (activeHabitId.value === id) {
         activeHabitId.value = habits.value[0]?.id || null;
       }
     };
