@@ -45,4 +45,8 @@ export const useHabitStore = defineStore("habitStore", () => {
       activeHabit.value = habits.value[0]?.id || null;
     }
   };
+
+  const setActiveHabit = (id) => {
+    activeHabitId.value = id;
+  };
 });
