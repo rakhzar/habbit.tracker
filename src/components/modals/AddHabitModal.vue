@@ -67,10 +67,10 @@
 
 <script setup>
 import { useHabitStore } from '../../stores/habitStore';
-import SportIcon from '../icons/SportIcon.vue';
-import WaterIcon from '../icons/WaterIcon.vue';
-import FoodIcon from '../icons/FoodIcon.vue';
-import CloseIcon from '../icons/CloseIcon.vue';
+import SportIcon from '../../img/SportIcon.vue';
+import WaterIcon from '../../img/WaterIcon.vue';
+import FoodIcon from '../../img/FoodIcon.vue';
+import CloseIcon from '../../img/CloseIcon.vue';
 
 const store = useHabitStore();
 </script>
@@ -134,21 +134,31 @@ h2 {
 .icon {
   border: 1px solid var(--color-bg-purple);
   border-radius: 14px;
-  background: var(--color-white);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 45px;
   height: 45px;
   cursor: pointer;
+  color: var(--color-bg-purple);
+  transition: all 0.2s ease;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
 }
 
 .icon_active {
-  background: var(--color-purple-active);
+  background: var(--color-bg-purple);
+  color: var(--color-white);
 }
 
-.icon_active img {
-  filter: brightness(0) invert(1);
+.icon_active svg {
+  filter: none;
 }
 
 .popup__form {
