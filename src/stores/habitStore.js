@@ -39,6 +39,13 @@ export const useHabitStore = defineStore("habitStore", () => {
     }
   };
 
+  const deleteDay = (index) => {
+    const habit = activeHabit.value;
+    if (habit) {
+      habit.days.splice(index, 1);
+    }
+  };
+
   const deleteHabit = (id) => {
     habits.value = habits.value.filter((h) => h.id !== id);
     if (activeHabit.value === id) {
@@ -48,5 +55,17 @@ export const useHabitStore = defineStore("habitStore", () => {
 
   const setActiveHabit = (id) => {
     activeHabitId.value = id;
+  };
+
+  return {
+    habits,
+    activeHabitId,
+    activeHabit,
+    progressPercent,
+    addHabit,
+    addDay,
+    deleteDay,
+    deleteHabit,
+    setActiveHabit,
   };
 });
