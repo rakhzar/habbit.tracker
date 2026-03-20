@@ -8,6 +8,10 @@ export const useHabitStore = defineStore(
     const activeHabitId = ref(null);
     const isAddModalOpen = ref(false);
 
+    const newHabitName = ref('');
+    const newHabitIcon = ref('sport');
+    const newHabitTarget = ref(1);
+
     watch(
       habits,
       () => {
@@ -43,6 +47,24 @@ export const useHabitStore = defineStore(
       isAddModalOpen.value = false;
     };
 
+    const setNewHabitIcon = (icon) => {
+      newHabitIcon.value = icon;
+    };
+
+    const addHabitFromModal = () => {
+      if (newHabitName.value && newHabitTarget.value) {
+        addHabit({
+          name: newHabitName.value,
+          icon: newHabitIcon.value,
+          target: newHabitTarget.value,
+        });
+        // очистка
+        newHabitName.value = '';
+        newHabitIcon.value = 'sport';
+        newHabitTarget.value = 1;
+      }
+    };
+
     const addHabit = (habit) => {
       const maxId = habits.value.reduce(
         (max, h) => (h.id > max ? h.id : max),
@@ -57,7 +79,7 @@ export const useHabitStore = defineStore(
         days: [],
       });
       activeHabitId.value = newId;
-      isAddModalOpen;
+      closeAddModal();
     };
 
     const addDay = (comment) => {
@@ -91,8 +113,13 @@ export const useHabitStore = defineStore(
       isAddModalOpen,
       activeHabit,
       progressPercent,
+      newHabitName,
+      newHabitIcon,
+      newHabitTarget,
       openAddModal,
       closeAddModal,
+      setNewHabitIcon,
+      addHabitFromModal,
       addHabit,
       addDay,
       deleteDay,
