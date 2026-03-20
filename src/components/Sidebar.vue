@@ -3,9 +3,11 @@
     <LogoIcon class="logo" />
 
     <n-grid class="menu" :cols="1" :x-gap="12" :y-gap="12">
-      <n-gi v-for="habit in store.habits" :key="habit.id">
-        <HabitButton :habit="habit" />
-      </n-gi>
+      <HabitButton
+        v-for="habit in store.habits"
+        :key="habit.id"
+        :habit="habit"
+      />
     </n-grid>
 
     <button class="menu__add" @click="store.openAddModal">
@@ -15,19 +17,12 @@
 </template>
 
 <script setup>
-import { NGrid, NGi } from 'naive-ui';
+import { NGrid } from 'naive-ui';
 import { useHabitStore } from '../stores/habitStore';
 import LogoIcon from '../img/LogoIcon.vue';
 import AddIcon from '../img/AddIcon.vue';
 
 const store = useHabitStore();
-
-const props = defineProps({
-  habit: {
-    type: Object,
-    required: true,
-  },
-});
 </script>
 
 <style scoped>
