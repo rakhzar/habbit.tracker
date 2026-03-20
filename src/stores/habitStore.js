@@ -6,6 +6,7 @@ export const useHabitStore = defineStore(
   () => {
     const habits = ref([]);
     const activeHabitId = ref(null);
+    const isAddModalOpen = ref(false);
 
     watch(
       habits,
@@ -34,6 +35,14 @@ export const useHabitStore = defineStore(
     });
 
     // actions
+    const openAddModal = () => {
+      isAddModalOpen.value = true;
+    };
+
+    const closeAddModal = () => {
+      isAddModalOpen.value = false;
+    };
+
     const addHabit = (habit) => {
       const maxId = habits.value.reduce(
         (max, h) => (h.id > max ? h.id : max),
@@ -48,6 +57,7 @@ export const useHabitStore = defineStore(
         days: [],
       });
       activeHabitId.value = newId;
+      isAddModalOpen;
     };
 
     const addDay = (comment) => {
@@ -78,8 +88,11 @@ export const useHabitStore = defineStore(
     return {
       habits,
       activeHabitId,
+      isAddModalOpen,
       activeHabit,
       progressPercent,
+      openAddModal,
+      closeAddModal,
       addHabit,
       addDay,
       deleteDay,
