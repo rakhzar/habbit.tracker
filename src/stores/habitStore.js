@@ -32,9 +32,9 @@ export const useHabitStore = defineStore("habitStore", () => {
     activeHabit.value = newId;
   };
 
-  const addday = (comment) => {
+  const addDay = (comment) => {
     const habit = activeHabit.value;
-    if (habbit) {
+    if (habit) {
       habit.days.push({ comment });
     }
   };
