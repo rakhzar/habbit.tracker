@@ -192,12 +192,18 @@ function addHabbit(event) {
   });
   resetForm(event.target, ['name', 'target']);
   togglePopup();
+  saveData();
   rerender(maxId + 1);
 }
 
 /* init */
 (() => {
   loadData();
+  if (habbits.length === 0) {
+    console.log('Данных нет. Ждем создания первой привычки.');
+    return;
+  }
+
   const hashId = Number(document.location.hash.replace('#', ''));
   const urlHabbit = habbits.find(habbit => habbit.id == hashId);
   console.log(urlHabbit);
