@@ -17,6 +17,7 @@
 </template>
 
 <script setup>
+import HabitButton from './ui/HabitButton.vue';
 import { useHabitStore } from '../stores/habitStore';
 import LogoIcon from '../img/LogoIcon.vue';
 import AddIcon from '../img/AddIcon.vue';
@@ -33,7 +34,11 @@ const store = useHabitStore();
 }
 
 .menu {
-  margin-bottom: 25px;
+  margin: 25px 0 25px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
 .menu__add {
