@@ -38,4 +38,11 @@ export const useHabitStore = defineStore("habitStore", () => {
       habit.days.push({ comment });
     }
   };
+
+  const deleteHabit = (id) => {
+    habits.value = habits.value.filter((h) => h.id !== id);
+    if (activeHabit.value === id) {
+      activeHabit.value = habits.value[0]?.id || null;
+    }
+  };
 });
