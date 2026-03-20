@@ -13,12 +13,10 @@
 </template>
 
 <script setup>
-import { useHabitStore } from '../stores/habitStore';
-import SportIcon from './icons/SportIcon.vue';
-import WaterIcon from './icons/WaterIcon.vue';
-import FoodIcon from './icons/FoodIcon.vue';
-
-const store = useHabitStore();
+import { useHabitStore } from '../../stores/habitStore';
+import SportIcon from '../../img/SportIcon.vue';
+import WaterIcon from '../../img/WaterIcon.vue';
+import FoodIcon from '../../img/FoodIcon.vue';
 
 const props = defineProps({
   habit: {
@@ -26,6 +24,8 @@ const props = defineProps({
     required: true,
   },
 });
+
+const store = useHabitStore();
 </script>
 
 <style scoped>
@@ -41,20 +41,9 @@ const props = defineProps({
   align-items: center;
   justify-content: center;
 }
-
+.menu__item_active,
 .menu__item:hover {
-  background: var(--color-bg-hover);
-}
-
-.menu__item:hover img {
-  filter: brightness(0) invert(1);
-}
-
-.menu__item_active {
   background: var(--color-purple-active);
-}
-
-.menu__item_active img {
-  filter: brightness(0) invert(1);
+  color: var(--color-white);
 }
 </style>
