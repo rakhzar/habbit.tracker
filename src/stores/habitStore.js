@@ -1,15 +1,28 @@
-import { defineStore } from "pinia";
-import { ref, computed } from "vue";
+import { defineStore } from 'pinia';
+import { ref, computed, watch } from 'vue';
 
 export const useHabitStore = defineStore(
-  "habitStore",
+  'habitStore',
   () => {
     const habits = ref([]);
     const activeHabitId = ref(null);
 
+    watch(
+      habits,
+      () => {
+        if (
+          habits.value.length > 0 &&
+          activeHabitId.value === null
+        ) {
+          activeHabitId.value = habits.value[0].id;
+        }
+      },
+      { immediate: true }
+    );
+
     // getters
     const activeHabit = computed(() =>
-      habits.value.find((h) => h.id === activeHabitId.value),
+      habits.value.find((h) => h.id === activeHabitId.value)
     );
 
     const progressPercent = computed(() => {
@@ -24,7 +37,7 @@ export const useHabitStore = defineStore(
     const addHabit = (habit) => {
       const maxId = habits.value.reduce(
         (max, h) => (h.id > max ? h.id : max),
-        0,
+        0
       );
       const newId = maxId + 1;
       habits.value.push({
@@ -76,8 +89,8 @@ export const useHabitStore = defineStore(
   },
   {
     persist: {
-      key: "habits",
-      pick: ["habits"],
+      key: 'habits',
+      pick: ['habits'],
     },
-  },
+  }
 );
