@@ -1,14 +1,14 @@
 <template>
   <div class="panel">
-    <LogoIcon class="logo" />
+    <LogoIcon alt="Логотип иконка habit" />
 
-    <n-grid class="menu" :cols="1" :x-gap="12" :y-gap="12">
+    <div class="menu">
       <HabitButton
         v-for="habit in store.habits"
         :key="habit.id"
         :habit="habit"
       />
-    </n-grid>
+    </div>
 
     <button class="menu__add" @click="store.openAddModal">
       <AddIcon />
@@ -17,7 +17,6 @@
 </template>
 
 <script setup>
-import { NGrid } from 'naive-ui';
 import { useHabitStore } from '../stores/habitStore';
 import LogoIcon from '../img/LogoIcon.vue';
 import AddIcon from '../img/AddIcon.vue';
@@ -30,10 +29,7 @@ const store = useHabitStore();
   background: var(--color-white);
   min-height: 100vh;
   padding: 30px;
-}
-
-.logo {
-  margin-bottom: 50px;
+  border-right: 2px dotted var(--color-border-purple);
 }
 
 .menu {
