@@ -8,9 +8,9 @@ export const useHabitStore = defineStore(
     const activeHabitId = ref(null);
 
     // getters
-    const activeHabit = computed(() => {
-      habits.value.find((h) => h.id === activeHabit.value);
-    });
+    const activeHabit = computed(() =>
+      habits.value.find((h) => h.id === activeHabitId.value),
+    );
 
     const progressPercent = computed(() => {
       if (!activeHabit.value) return 0;
@@ -34,7 +34,7 @@ export const useHabitStore = defineStore(
         target: Number(habit.target),
         days: [],
       });
-      activeHabit.value = newId;
+      activeHabitId.value = newId;
     };
 
     const addDay = (comment) => {
@@ -54,7 +54,7 @@ export const useHabitStore = defineStore(
     const deleteHabit = (id) => {
       habits.value = habits.value.filter((h) => h.id !== id);
       if (activeHabit.value === id) {
-        activeHabit.value = habits.value[0]?.id || null;
+        activeHabitId.value = habits.value[0]?.id || null;
       }
     };
 
