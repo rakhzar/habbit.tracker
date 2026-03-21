@@ -46,15 +46,31 @@
           v-model="store.newHabitName"
           type="text"
           placeholder="Название"
-          required
+          :class="{ error: store.newHabitNameError }"
         />
+
+        <span
+          v-if="store.newHabitNameError"
+          class="error-message"
+        >
+          Пожалуйста, заполните это поле
+        </span>
+
         <input
           v-model="store.newHabitTarget"
           type="text"
           placeholder="Цель (дней)"
-          required
           min="1"
+          :class="{ error: store.newHabitTargetError }"
         />
+
+        <span
+          v-if="store.newHabitTargetError"
+          class="error-message"
+        >
+          Введите число больше 0
+        </span>
+
         <button class="button" type="submit">Добавить</button>
       </form>
 
@@ -167,6 +183,17 @@ h2 {
   flex-direction: column;
   align-items: center;
   gap: 15px;
+}
+
+.error {
+  border-color: red !important;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
 }
 
 .popup__form input {
