@@ -14,21 +14,7 @@
         </button>
       </div>
 
-      <div v-else class="title-edit">
-        <input
-          ref="editInput"
-          v-model="store.editTitleValue"
-          type="text"
-          class="edit-input"
-          :class="{ error: store.titleError }"
-          @keyup.enter="store.saveTitle"
-          @blur="store.saveTitle"
-          autofocus
-        />
-        <button class="icon-btn" @click="store.cancelEditTitle">
-          ✖️
-        </button>
-      </div>
+      <EditableInput v-else />
     </div>
 
     <div class="progress">
@@ -51,8 +37,8 @@
 
 <script setup>
 import DeleteIcon from '../img/DeleteIcon.vue';
-import EditIcon from '../img/EditIcon.vue';
 import { useHabitStore } from '../stores/habitStore';
+import EditableInput from './EditableInput.vue';
 const store = useHabitStore();
 </script>
 
