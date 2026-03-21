@@ -66,11 +66,11 @@
 </template>
 
 <script setup>
-import { useHabitStore } from '../../stores/habitStore';
-import SportIcon from '../../img/SportIcon.vue';
-import WaterIcon from '../../img/WaterIcon.vue';
-import FoodIcon from '../../img/FoodIcon.vue';
-import CloseIcon from '../../img/CloseIcon.vue';
+import { useHabitStore } from '../stores/habitStore';
+import SportIcon from '../img/SportIcon.vue';
+import WaterIcon from '../img/WaterIcon.vue';
+import FoodIcon from '../img/FoodIcon.vue';
+import CloseIcon from '../img/CloseIcon.vue';
 
 const store = useHabitStore();
 </script>
