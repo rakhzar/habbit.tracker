@@ -13,12 +13,14 @@
   --color-text-grey: #768396;
   --color-border-input: #e7ebfb;
   --color-habbit-day: #e7ebf1;
-  --color-button: #eeddee;
+  --color-button: #edecfe;
   --color-button-hover: #dcdaff;
   --color-text-black: #000000;
   --color-text-progress: #232360;
   --color-border-red: red;
   --color-bg-body: #e8eaf6;
+  --color-input: #8899ab;
+  --color-input-day: #f3f6fd;
 
   --font-family: 'Comfortaa', sans-serif;
 }
