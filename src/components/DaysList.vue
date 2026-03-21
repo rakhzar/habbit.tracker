@@ -120,6 +120,7 @@ const dayStore = useDayStore();
   padding: 12px 30px;
   cursor: pointer;
   margin-right: 12px;
+  margin-left: 24px;
 }
 
 .habbit__form .button:hover {
