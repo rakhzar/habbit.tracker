@@ -9,6 +9,7 @@
       placeholder="Комментарий"
       :class="{ error: dayStore.dayCommentError }"
     />
+    <button class="button" type="submit">Готово</button>
   </form>
 </template>
 
@@ -26,11 +27,12 @@ const dayStore = useDayStore();
   margin-top: 20px;
 }
 input {
+  flex: 1;
   background: var(--color-white);
   border: 1px solid var(--color-border-input);
   border-radius: 9px;
+  padding: 12px 20px;
   font-family: inherit;
-  flex: 1;
   font-size: 14px;
 }
 input.error {
@@ -45,6 +47,7 @@ input.error {
   color: var(--color-text-purple);
   padding: 12px 30px;
   cursor: pointer;
+  white-space: nowrap;
 }
 .button:hover {
   background: var(--color-button-hover);
