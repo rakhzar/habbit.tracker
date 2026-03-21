@@ -17,9 +17,6 @@ export const useHabitStore = defineStore(
     const editTitleValue = ref('');
     const titleError = ref(false);
 
-    const dayComment = ref('');
-    const dayCommentError = ref(false);
-
     // modal error
     const newHabitNameError = ref(false);
     const newHabitTargetError = ref(false);
@@ -51,24 +48,6 @@ export const useHabitStore = defineStore(
     });
 
     // actions
-    const setDayComment = (comment) => {
-      dayComment.value = comment;
-      dayCommentError.value = false;
-    };
-
-    const addDayFromForm = () => {
-      if (!dayComment.value.trim()) {
-        dayCommentError.value = true;
-        return;
-      }
-      const habit = activeHabit.value;
-      if (habit) {
-        habit.days.push({ comment: dayComment.value });
-      }
-      dayComment.value = '';
-      dayCommentError.value = false;
-    };
-
     const startEditTitle = () => {
       if (!activeHabit.value) return;
       editTitleValue.value = activeHabit.value.name;
@@ -192,10 +171,6 @@ export const useHabitStore = defineStore(
       isAddModalOpen,
       activeHabit,
       progressPercent,
-      dayComment,
-      dayCommentError,
-      setDayComment,
-      addDayFromForm,
       isEditingTitle,
       editTitleValue,
       titleError,
