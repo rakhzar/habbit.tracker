@@ -27,7 +27,6 @@ const store = useHabitStore();
 
 <style scoped>
 .panel {
-  background: var(--color-white);
   min-height: 100vh;
   padding: 30px;
 }
