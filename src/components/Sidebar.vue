@@ -4,13 +4,13 @@
 
     <div class="menu">
       <HabitButton
-        v-for="habit in habitStore.habits"
+        v-for="habit in store.habits"
         :key="habit.id"
         :habit="habit"
       />
     </div>
 
-    <button class="menu__add" @click="uiStore.openAddModal">
+    <button class="menu__add" @click="store.openAddModal">
       <AddIcon />
     </button>
   </div>
@@ -19,12 +19,10 @@
 <script setup>
 import HabitButton from './HabitButton.vue';
 import { useHabitStore } from '../stores/habitStore';
-import { useUiStore } from '../stores/uiStore';
 import LogoIcon from '../img/LogoIcon.vue';
 import AddIcon from '../img/AddIcon.vue';
 
-const habitStore = useHabitStore();
-const uiStore = useUiStore();
+const store = useHabitStore();
 </script>
 
 <style scoped>
