@@ -1,18 +1,14 @@
 <template>
   <header>
     <div class="title-wrapper">
-      <div v-if="!uiStore.isEditingTitle" class="title-display">
-        <h1 @click="uiStore.startEditTitle">
-          {{
-            habitStore.activeHabit?.name || 'Выберите привычку'
-          }}
+      <div v-if="!store.isEditingTitle" class="title-display">
+        <h1 @click="store.startEditTitle">
+          {{ store.activeHabit?.name || 'Выберите привычку' }}
         </h1>
         <button
-          v-if="habitStore.activeHabit"
+          v-if="store.activeHabit"
           class="icon-btn"
-          @click="
-            habitStore.deleteHabit(habitStore.activeHabit.id)
-          "
+          @click="store.deleteHabit(store.activeHabit.id)"
         >
           <DeleteIcon />
         </button>
@@ -25,14 +21,14 @@
       <div class="progress__text">
         <div class="progress__name">Прогресс</div>
         <div class="progress__percent">
-          {{ habitStore.progressPercent.toFixed(0) }}%
+          {{ store.progressPercent.toFixed(0) }}%
         </div>
       </div>
 
       <div class="progress_bar">
         <div
           class="progress__cover-bar"
-          :style="{ width: habitStore.progressPercent + '%' }"
+          :style="{ width: store.progressPercent + '%' }"
         ></div>
       </div>
     </div>
@@ -42,11 +38,8 @@
 <script setup>
 import DeleteIcon from '../img/DeleteIcon.vue';
 import { useHabitStore } from '../stores/habitStore';
-import { useUiStore } from '../stores/uiStore';
 import EditableInput from './EditableInput.vue';
-
-const habitStore = useHabitStore();
-const uiStore = useUiStore();
+const store = useHabitStore();
 </script>
 
 <style scoped>
