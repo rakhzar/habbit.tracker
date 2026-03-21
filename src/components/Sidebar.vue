@@ -30,7 +30,6 @@ const store = useHabitStore();
   background: var(--color-white);
   min-height: 100vh;
   padding: 30px;
-  border-right: 2px dotted var(--color-border-purple);
 }
 
 .menu {
