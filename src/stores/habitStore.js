@@ -17,6 +17,10 @@ export const useHabitStore = defineStore(
     const editTitleValue = ref('');
     const titleError = ref(false);
 
+    // modal error
+    const newHabitNameError = ref(false);
+    const newHabitTargetError = ref(false);
+
     watch(
       habits,
       () => {
@@ -91,15 +95,31 @@ export const useHabitStore = defineStore(
     };
 
     const addHabitFromModal = () => {
-      if (newHabitName.value && newHabitTarget.value) {
+      let isValid = true;
+      if (!newHabitName.value.trim()) {
+        newHabitNameError.value = true;
+        isValid = false;
+      } else {
+        newHabitNameError.value = false;
+      }
+
+      if (!newHabitTarget.value || newHabitTarget.value <= 0) {
+        newHabitTargetError.value = true;
+        isValid = false;
+      } else {
+        newHabitTargetError.value = false;
+      }
+
+      if (isValid) {
         addHabit({
           name: newHabitName.value,
           icon: newHabitIcon.value,
           target: newHabitTarget.value,
         });
-        newHabitName.value = '';
-        newHabitIcon.value = 'sport';
-        newHabitTarget.value = 1;
+        ((newHabitName.value = ''),
+          (newHabitIcon.value = 'sport'),
+          (newHabitTarget.value = 1),
+          closeAddModal());
       }
     };
 
@@ -163,6 +183,8 @@ export const useHabitStore = defineStore(
       openAddModal,
       closeAddModal,
       setNewHabitIcon,
+      newHabitNameError,
+      newHabitTargetError,
       addHabitFromModal,
       addHabit,
       addDay,
