@@ -1,8 +1,8 @@
 <template>
   <div
     class="cover"
-    v-if="uiStore.isAddModalOpen"
-    @click.self="uiStore.closeAddModal"
+    v-if="store.isAddModalOpen"
+    @click.self="store.closeAddModal"
   >
     <div class="popup">
       <h2>Новая привычка</h2>
@@ -12,9 +12,9 @@
         <button
           class="icon"
           :class="{
-            icon_active: uiStore.newHabitIcon === 'sport',
+            icon_active: store.newHabitIcon === 'sport',
           }"
-          @click="uiStore.setNewHabitIcon('sport')"
+          @click="store.setNewHabitIcon('sport')"
         >
           <SportIcon />
         </button>
@@ -22,19 +22,17 @@
         <button
           class="icon"
           :class="{
-            icon_active: uiStore.newHabitIcon === 'water',
+            icon_active: store.newHabitIcon === 'water',
           }"
-          @click="uiStore.setNewHabitIcon('water')"
+          @click="store.setNewHabitIcon('water')"
         >
           <WaterIcon />
         </button>
 
         <button
           class="icon"
-          :class="{
-            icon_active: uiStore.newHabitIcon === 'food',
-          }"
-          @click="uiStore.setNewHabitIcon('food')"
+          :class="{ icon_active: store.newHabitIcon === 'food' }"
+          @click="store.setNewHabitIcon('food')"
         >
           <FoodIcon />
         </button>
@@ -42,32 +40,32 @@
 
       <form
         class="popup__form"
-        @submit.prevent="uiStore.addHabitFromModal"
+        @submit.prevent="store.addHabitFromModal"
       >
         <input
-          v-model="uiStore.newHabitName"
+          v-model="store.newHabitName"
           type="text"
           placeholder="Название"
-          :class="{ error: uiStore.newHabitNameError }"
+          :class="{ error: store.newHabitNameError }"
         />
 
         <span
-          v-if="uiStore.newHabitNameError"
+          v-if="store.newHabitNameError"
           class="error-message"
         >
           Пожалуйста, заполните это поле
         </span>
 
         <input
-          v-model="uiStore.newHabitTarget"
+          v-model="store.newHabitTarget"
           type="text"
           placeholder="Цель (дней)"
           min="1"
-          :class="{ error: uiStore.newHabitTargetError }"
+          :class="{ error: store.newHabitTargetError }"
         />
 
         <span
-          v-if="uiStore.newHabitTargetError"
+          v-if="store.newHabitTargetError"
           class="error-message"
         >
           Введите число больше 0
@@ -76,10 +74,7 @@
         <button class="button" type="submit">Добавить</button>
       </form>
 
-      <button
-        class="popup__close"
-        @click="uiStore.closeAddModal"
-      >
+      <button class="popup__close" @click="store.closeAddModal">
         <CloseIcon />
       </button>
     </div>
@@ -87,13 +82,13 @@
 </template>
 
 <script setup>
-import { useUiStore } from '../stores/uiStore';
+import { useHabitStore } from '../stores/habitStore';
 import SportIcon from '../img/SportIcon.vue';
 import WaterIcon from '../img/WaterIcon.vue';
 import FoodIcon from '../img/FoodIcon.vue';
 import CloseIcon from '../img/CloseIcon.vue';
 
-const uiStore = useUiStore();
+const store = useHabitStore();
 </script>
 
 <style scoped>
