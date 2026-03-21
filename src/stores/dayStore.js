@@ -17,10 +17,7 @@ export const useDayStore = defineStore('dayStore', () => {
       dayCommentError.value = true;
       return;
     }
-    const habit = activeHabit.value;
-    if (habit) {
-      habit.days.push({ comment: dayComment.value });
-    }
+    habitStore.addDay(dayComment.value);
     dayComment.value = '';
     dayCommentError.value = false;
   };
