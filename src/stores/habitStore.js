@@ -12,6 +12,11 @@ export const useHabitStore = defineStore(
     const newHabitIcon = ref('sport');
     const newHabitTarget = ref(1);
 
+    // state
+    const isEditingTitle = ref(false);
+    const editTitleValue = ref('');
+    const titleError = ref(false);
+
     watch(
       habits,
       () => {
@@ -39,6 +44,40 @@ export const useHabitStore = defineStore(
     });
 
     // actions
+    const startEditTitle = () => {
+      if (!activeHabit.value) return;
+      editTitleValue.value = activeHabit.value.name;
+      isEditingTitle.value = true;
+      titleError.value = false;
+    };
+
+    const updateHabitName = (id, newName) => {
+      const habit = habits.value.find((h) => h.id === id);
+      if (habit) {
+        habit.name = newName;
+      }
+    };
+
+    const saveTitle = () => {
+      if (!editTitleValue.value.trim()) {
+        titleError.value = true;
+        return;
+      }
+      if (activeHabit.value) {
+        updateHabitName(
+          activeHabit.value.id,
+          editTitleValue.value.trim()
+        );
+      }
+      isEditingTitle.value = false;
+      titleError.value = false;
+    };
+
+    const cancelEditTitle = () => {
+      isEditingTitle.value = false;
+      titleError.value = false;
+    };
+
     const openAddModal = () => {
       isAddModalOpen.value = true;
     };
@@ -58,7 +97,6 @@ export const useHabitStore = defineStore(
           icon: newHabitIcon.value,
           target: newHabitTarget.value,
         });
-        // очистка
         newHabitName.value = '';
         newHabitIcon.value = 'sport';
         newHabitTarget.value = 1;
@@ -113,6 +151,12 @@ export const useHabitStore = defineStore(
       isAddModalOpen,
       activeHabit,
       progressPercent,
+      isEditingTitle,
+      editTitleValue,
+      titleError,
+      startEditTitle,
+      saveTitle,
+      cancelEditTitle,
       newHabitName,
       newHabitIcon,
       newHabitTarget,
