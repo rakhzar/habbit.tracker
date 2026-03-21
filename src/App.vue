@@ -7,7 +7,7 @@
 
 <script setup>
 import Sidebar from './components/Sidebar.vue';
-import AddHabitModal from './components/modals/AddHabitModal.vue';
+import AddHabitModal from './components/AddHabitModal.vue';
 </script>
 
 <style>

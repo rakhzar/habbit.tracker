@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import HabitButton from './ui/HabitButton.vue';
+import HabitButton from './HabitButton.vue';
 import { useHabitStore } from '../stores/habitStore';
 import LogoIcon from '../img/LogoIcon.vue';
 import AddIcon from '../img/AddIcon.vue';
