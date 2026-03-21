@@ -14,6 +14,9 @@
   --color-border-input: #e7ebfb;
   --color-button: #eeddee;
   --color-button-hover: #dcdaff;
+  --color-text-black: #000000;
+  --color-text-progress: #232360;
+  --color-border-red: red;
 
   --font-family: 'Comfortaa', sans-serif;
 }
