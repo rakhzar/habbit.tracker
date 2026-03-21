@@ -99,6 +99,11 @@ const dayStore = useDayStore();
   border: none;
   cursor: pointer;
   padding: 2px;
+  border-radius: 15%;
+}
+
+.habbit__delete:hover {
+  background: var(--color-bg-purple);
 }
 
 .habbit__form input {
@@ -121,6 +126,7 @@ const dayStore = useDayStore();
   cursor: pointer;
   margin-right: 12px;
   margin-left: 24px;
+  font-weight: 600;
 }
 
 .habbit__form .button:hover {
