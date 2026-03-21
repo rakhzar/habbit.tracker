@@ -118,11 +118,12 @@ h1 {
   justify-content: space-between;
 }
 .progress__name {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--color-text-progress);
+  font-weight: bold;
 }
 .progress__percent {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--color-text-grey);
 }
 .progress__bar {
